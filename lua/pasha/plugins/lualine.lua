@@ -2,9 +2,9 @@ local function configureLualine()
 	require('lualine').setup {
 		options = {
 			icons_enabled = true,
-			theme = 'catppuccin',
+			theme = 'horizon',
 			component_separators = { left = '', right = ' '},
-			section_separators = { left = '  ', right = '  '},
+			section_separators = { left = '', right = ''},
 			disabled_filetypes = {
 				statusline = {},
 				winbar = {},
@@ -38,13 +38,13 @@ local function configureLualine()
 		winbar = {},
 		inactive_winbar = {},
 		extensions = {}
-	}	
+	}
 end
 
 return {
 	{	
 		"nvim-lualine/lualine.nvim",
-		requires = { 'nvim-tree/nvim-web-devicons', 'catppuccin/nvim', opt = true },
+		dependencies = { 'nvim-tree/nvim-web-devicons', 'catppuccin/nvim', opt = true },
 		config = configureLualine
 	}
 }

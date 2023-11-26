@@ -37,6 +37,4 @@ if #vim.v.argv < 3 then
   vim.cmd("Ex")
 end
 
-
-
-configureLsp()
+require("pasha.config.lsp")

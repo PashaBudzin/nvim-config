@@ -19,6 +19,9 @@ wk.register({
 					
 			}
 		}
+	},
+	["g"] = {
+		d = "[G]o to [D]efinitions"
 	}
 })
 

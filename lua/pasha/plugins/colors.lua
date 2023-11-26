@@ -1,5 +1,7 @@
-function colorMe()
+local function colorMe()
 	require("catppuccin").setup({
+		flavour = "mocha",
+		transparent_background = false,
 		integrations = {
 			cmp = true,
 			gitsigns = true,
@@ -13,12 +15,12 @@ function colorMe()
 			telescope = {
 				enabled = true
 			}
-		}
+		},
 	})
 
-	vim.cmd.colorscheme("catppuccin-mocha")
+	vim.cmd.colorscheme("catppuccin")
 end
 
 return {
-	{ "catppuccin/nvim", config = colorMe }
+	{ "catppuccin/nvim", config = colorMe, name = "catppuccin", priority = 1000 }
 }
