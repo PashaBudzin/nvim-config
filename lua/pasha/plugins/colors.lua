@@ -1,10 +1,5 @@
 local function setCatppuccin()
 	vim.cmd.colorscheme("catppuccin")
-	vim.api.nvim_set_hl(0, '@lsp.type.function', {})
-
-	for _, group in ipairs(vim.fn.getcompletion("@lsp", "highlight")) do
-		vim.api.nvim_set_hl(0, group, {})
-	end
 end
 
 return {
@@ -31,6 +26,14 @@ return {
 					enabled = true
 				},
 			},
+			custom_highlights = function(colors)
+				return {
+					Comment = { fg = colors.none, bg = colors.none },
+					TabLineSel = { bg = colors.pink },
+					CmpBorder = { fg = colors.surface2 },
+					Pmenu = { bg = colors.none },
+				}
+			end
 		}
 	}
 }
