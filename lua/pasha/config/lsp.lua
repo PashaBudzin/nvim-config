@@ -3,8 +3,6 @@ local lsp = require("lsp-zero")
 require('mason').setup({
 })
 
-lsp.
-
 require('mason-lspconfig').setup({
 	ensure_installed = {"lua_ls", "rust_analyzer"},
 	handlers = {
