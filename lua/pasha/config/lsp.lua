@@ -30,6 +30,7 @@ require('lspconfig').lua_ls.setup(lua_opts)
 local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 
+
 cmp.setup({
 	window = {
 		completion = cmp.config.window.bordered(),
@@ -76,7 +77,7 @@ lsp.on_attach(function(client, bufnr)
 	end, { desc = 'Format current buffer with LSP' })
 end)
 
-
+require('luasnip.loaders.from_vscode').lazy_load()
 
 lsp.setup()
 
