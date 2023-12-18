@@ -16,15 +16,20 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "folke/neoconf.nvim", cmd = "Neoconf" },
+  { "folke/neoconf.nvim",     cmd = "Neoconf" },
   "folke/neodev.nvim",
   "tpope/vim-fugitive",
   "christoomey/vim-tmux-navigator",
   "tpope/vim-commentary",
   "tpope/vim-sleuth",
-  {"windwp/nvim-autopairs",
-  event = "InsertEnter",
-  opts = {} },
+  {
+    "windwp/nvim-autopairs",
+
+    event = "InsertEnter",
+    opts = {}
+  },
+
+  { "stevearc/dressing.nvim", event = "VeryLazy" },
   { import = "pasha.plugins" },
 })
 
