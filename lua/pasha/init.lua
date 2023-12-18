@@ -35,6 +35,7 @@ require("lazy").setup({
 
 require("pasha.remap.telescope")
 require("pasha.remap.lsp")
+require("pasha.remap.navigation")
 require("pasha.set")
 
 -- open netrw if no file was provided
