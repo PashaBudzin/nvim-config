@@ -1,30 +1,43 @@
 local lsp = require("lsp-zero")
 
 require('mason').setup({
+	ui = {
+		icons = {
+			package_installed = "✓",
+			package_pending = "➜",
+			package_uninstalled = "✗"
+		}
+	}
 })
 
 require('mason-lspconfig').setup({
-	ensure_installed = {"lua_ls", "rust_analyzer"},
+	ensure_installed = { "lua_ls", "rust_analyzer", "jsonls" },
 	handlers = {
 		lsp.default_setup,
-		rust_analyzer = function ()
+		rust_analyzer = function()
 			local rust_tools = require('rust-tools')
 
 			rust_tools.setup({
 				server = {
-					on_attach =	function (_, bufnr)
-						vim.keymap.set('n', '<leader>ca', rust_tools.hover_actions.hover_actions, {buffer = bufnr})
-					end 
+					on_attach = function(_, bufnr)
+						vim.keymap.set('n', '<leader>ca', rust_tools.hover_actions.hover_actions, { buffer = bufnr })
+					end
 				}
 			})
 		end
 	},
 })
+
+
+
 lsp.preset("recommended")
 
--- Fix Undefined global 'vim'
 local lua_opts = lsp.nvim_lua_ls()
 require('lspconfig').lua_ls.setup(lua_opts)
+
+require("pasha.config.lspconfig.jsonls")
+
+-- setup cmp
 
 
 local cmp = require('cmp')
@@ -46,6 +59,7 @@ cmp.setup({
 	})
 })
 
+
 lsp.set_preferences({
 	suggest_lsp_servers = false,
 	sign_icons = {
@@ -56,8 +70,9 @@ lsp.set_preferences({
 	}
 })
 
+
 lsp.on_attach(function(client, bufnr)
-	local opts = {buffer = bufnr, remap = false}
+	local opts = { buffer = bufnr, remap = false }
 
 	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
 	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
