@@ -16,7 +16,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { "folke/neoconf.nvim",     cmd = "Neoconf" },
   "folke/neodev.nvim",
   "tpope/vim-fugitive",
   "christoomey/vim-tmux-navigator",
@@ -33,6 +32,7 @@ require("lazy").setup({
   { import = "pasha.plugins" },
 })
 
+require("pasha.remap.nvim-tree")
 require("pasha.remap.telescope")
 require("pasha.remap.lsp")
 require("pasha.remap.navigation")
