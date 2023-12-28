@@ -1,11 +1,6 @@
-local function setCatppuccin()
-	vim.cmd.colorscheme("catppuccin")
-end
-
 return {
 	{
 		"catppuccin/nvim",
-		config = setCatppuccin,
 		name = "catppuccin",
 		priority = 1000,
 		opts = {
