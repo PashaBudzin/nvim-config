@@ -11,7 +11,7 @@ require('mason').setup({
 })
 
 require('mason-lspconfig').setup({
-	ensure_installed = { "lua_ls", "rust_analyzer", "jsonls" },
+	ensure_installed = { "lua_ls", "rust_analyzer", "jsonls", "yamlls" },
 	handlers = {
 		lsp.default_setup,
 		rust_analyzer = function()
@@ -36,6 +36,7 @@ local lua_opts = lsp.nvim_lua_ls()
 require('lspconfig').lua_ls.setup(lua_opts)
 
 require("pasha.config.lspconfig.jsonls")
+require("pasha.config.lspconfig.yamlls")
 
 -- setup cmp
 

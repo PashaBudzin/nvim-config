@@ -4,23 +4,7 @@ require("lspconfig").jsonls.setup {
 		json = {
 			-- Schemas
 			schemas = {
-				{
-					fileMatch = { "package.json" },
-					url = "https://json.schemastore.org/package.json"
-				},
-				{
-					fileMatch = { "tsconfig*.json" },
-					url = "https://json.schemastore.org/tsconfig.json"
-				},
-				{
-					fileMatch = {
-						".prettierrc",
-						".prettierrc.json",
-						"prettier.config.json"
-					},
-					url = "https://json.schemastore.org/prettierrc.json"
-				},
-				-- Add other schemas as needed
+				["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*"
 			}
 		}
 	}
