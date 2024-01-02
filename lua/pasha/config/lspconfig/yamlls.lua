@@ -3,12 +3,6 @@ require("lspconfig").yamlls.setup{
 	settings = {
 		yaml = {
 			schemas = {
-				{
-					match = {
-
-					},
-					url = 
-				}
 			}
 		}
 	}

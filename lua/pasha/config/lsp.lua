@@ -85,7 +85,6 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
 	vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
 	vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-
 	vim.notify(string.format("Loaded %s", client.name))
 
 	vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
