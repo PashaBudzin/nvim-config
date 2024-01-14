@@ -4,6 +4,14 @@ vim.keymap.set('n', '<leader>wn', function()
 	vim.cmd('bnext')
 end)
 
+vim.keymap.set('n', '<tab>', function()
+	vim.cmd('bnext')
+end)
+
+vim.keymap.set('n', '<s-tab>', function()
+	vim.cmd('bprevious')
+end)
+
 vim.keymap.set('n', '<leader>wp', function()
 	vim.cmd('bprevious')
 end)

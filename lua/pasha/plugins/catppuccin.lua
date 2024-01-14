@@ -22,14 +22,6 @@ return {
 					enabled = true
 				},
 			},
-			custom_highlights = function(colors)
-				return {
-					Comment = { fg = colors.none, bg = colors.none },
-					TabLineSel = { bg = colors.pink },
-					CmpBorder = { fg = colors.surface2 },
-					Pmenu = { bg = colors.none },
-				}
-			end
 		}
 	}
 }
