@@ -3,9 +3,7 @@ require("lspconfig").jsonls.setup {
 	settings = {
 		json = {
 			-- Schemas
-			schemas = {
-				["https://raw.githubusercontent.com/OAI/OpenAPI-Specification/main/schemas/v3.0/schema.yaml"] = "/*"
-			}
+			schemas = require("schemastore").json.schemas()
 		}
 	}
 }

@@ -25,7 +25,9 @@ local function configureTreesitter()
         node_decremental = 'grd',
       },
     },
-
+    indent = {
+      enable = true
+    }
   }
 end
 

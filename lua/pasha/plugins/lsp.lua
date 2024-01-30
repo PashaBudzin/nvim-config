@@ -30,7 +30,10 @@ return {
 					-- 'nvim-lua/plenary.nvim',
 					-- 'mfussenegger/nvim-dap'
 				}
-			}
+			},
+
+			-- schemas
+			{ "b0o/schemastore.nvim" },
 		}
 	},
 }

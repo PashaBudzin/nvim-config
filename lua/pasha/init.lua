@@ -20,7 +20,7 @@ require("lazy").setup({
   "tpope/vim-fugitive",
   "christoomey/vim-tmux-navigator",
   "tpope/vim-commentary",
-  "tpope/vim-sleuth",
+  -- "tpope/vim-sleuth",
   {
     "windwp/nvim-autopairs",
 
