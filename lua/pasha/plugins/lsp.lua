@@ -20,17 +20,8 @@ return {
 			{ 'hrsh7th/cmp-nvim-lua' },
 			{ 'L3MON4D3/LuaSnip' },
 			{ 'rafamadriz/friendly-snippets' },
+
 			{ 'rcarriga/nvim-notify' },
-			--rust tools
-			{
-				'simrat39/rust-tools.nvim',
-				dependencies = {
-					"folke/which-key.nvim"
-					-- Tools for debugging
-					-- 'nvim-lua/plenary.nvim',
-					-- 'mfussenegger/nvim-dap'
-				}
-			},
 
 			-- schemas
 			{ "b0o/schemastore.nvim" },

@@ -1,7 +1,8 @@
 require("pasha.remap")
 
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -16,31 +17,11 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  "folke/neodev.nvim",
-  "tpope/vim-fugitive",
-  "christoomey/vim-tmux-navigator",
-  "tpope/vim-commentary",
-  -- "tpope/vim-sleuth",
-  {
-    "windwp/nvim-autopairs",
+	{ import = "pasha.plugins" }
+});
 
-    event = "InsertEnter",
-    opts = {}
-  },
-
-  { "stevearc/dressing.nvim", event = "VeryLazy" },
-  { import = "pasha.plugins" },
-})
-
-require("pasha.remap.nvim-tree")
-require("pasha.remap.telescope")
-require("pasha.remap.lsp")
-require("pasha.remap.navigation")
 require("pasha.set")
 
--- open netrw if no file was provided
 if #vim.v.argv < 3 then
-  vim.cmd("Ex")
+	vim.cmd("Ex")
 end
-
-require("pasha.config.lsp")
