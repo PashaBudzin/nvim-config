@@ -22,6 +22,12 @@ require("lazy").setup({
 
 require("pasha.set")
 
+local colorscheme = require("pasha.colors.save-colors").load_theme("catppuccin")
+
+vim.cmd.colorscheme(colorscheme)
+
+require("pasha.colors.colors")
+
 if #vim.v.argv < 3 then
 	vim.cmd("Ex")
 end
