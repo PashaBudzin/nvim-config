@@ -5,6 +5,7 @@ lsp_zero.on_attach(function(client, bufnr)
 
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<leader>e", function() vim.lsp.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
     vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
@@ -48,6 +49,16 @@ require('mason-lspconfig').setup({
             require('lspconfig').lua_ls.setup(lua_opts)
         end,
         rust_analyzer = lsp_zero.noop
+    }
+})
+
+require("lspconfig").jsonls.setup({
+    filetypes = { "json", "jsonc" },
+    settings = {
+        json = {
+            -- Schemas
+            schemas = require("schemastore").json.schemas()
+        }
     }
 })
 
