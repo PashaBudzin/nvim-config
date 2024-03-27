@@ -14,6 +14,7 @@ conform.setup({
 		javascriptreact = prettier,
 		typescriptreact = prettier,
 		vue = prettier,
+		json = prettier,
 		svelte = prettier,
 		html = prettier,
 		css = prettier,
