@@ -15,9 +15,9 @@ lsp_zero.on_attach(function(client, bufnr)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
     vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 
-    vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-        vim.lsp.buf.format()
-    end, { desc = 'Format current buffer with LSP' })
+--     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+--         vim.lsp.buf.format()
+--     end, { desc = 'Format current buffer with LSP' })
 
     vim.keymap.set("n", "<leader>i", vim.cmd.Format)
 end)
