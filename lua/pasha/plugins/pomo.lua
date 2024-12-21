@@ -9,7 +9,7 @@ return {
     },
     opts = {
         sessions = {
-            pomodoro = {
+            pomo = {
                 { name = "Work",        duration = "25m" },
                 { name = "Short Break", duration = "5m" },
                 { name = "Work",        duration = "25m" },
