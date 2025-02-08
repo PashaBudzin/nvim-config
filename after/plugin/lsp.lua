@@ -99,27 +99,95 @@ vim.g.rustaceanvim = {
     },
 }
 
--- to learn how to use mason.nvim with lsp-zero
--- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
-require("mason").setup({
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-        },
-    },
-})
+-- -- to learn how to use mason.nvim with lsp-zero
+-- -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
+-- require("mason").setup({
+--     ui = {
+--         icons = {
+--             package_installed = "✓",
+--             package_pending = "➜",
+--             package_uninstalled = "✗",
+--         },
+--     },
+-- })
 
-require("mason-lspconfig").setup({
-    ensure_installed = { "ts_ls", "rust_analyzer", "lua_ls", "jsonls", "yamlls", "eslint" },
-    handlers = {
-        lsp_zero.default_setup,
-        lua_ls = function()
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require("lspconfig").lua_ls.setup(lua_opts)
-        end,
-        rust_analyzer = lsp_zero.noop,
+-- require("mason-lspconfig").setup({
+--     ensure_installed = { "ts_ls", "rust_analyzer", "lua_ls", "jsonls", "yamlls", "eslint" },
+--     handlers = {
+--         lsp_zero.default_setup,
+--         lua_ls = function()
+--             local lua_opts = lsp_zero.nvim_lua_ls()
+--             require("lspconfig").lua_ls.setup(lua_opts)
+--         end,
+--         rust_analyzer = lsp_zero.noop,
+--     },
+-- })
+
+require 'lspconfig'.lua_ls.setup {
+    on_init = function(client)
+        if client.workspace_folders then
+            local path = client.workspace_folders[1].name
+            if path ~= vim.fn.stdpath('config') and (vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc')) then
+                return
+            end
+        end
+
+        client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
+            runtime = {
+                -- Tell the language server which version of Lua you're using
+                -- (most likely LuaJIT in the case of Neovim)
+                version = 'LuaJIT'
+            },
+            -- Make the server aware of Neovim runtime files
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME
+                    -- Depending on the usage, you might want to add additional paths here.
+                    -- "${3rd}/luv/library"
+                    -- "${3rd}/busted/library",
+                }
+                -- or pull in all of 'runtimepath'. NOTE: this is a lot slower and will cause issues when working on your own configuration (see https://github.com/neovim/nvim-lspconfig/issues/3189)
+                -- library = vim.api.nvim_get_runtime_file("", true)
+            }
+        })
+    end,
+    settings = {
+        Lua = {}
+    }
+}
+
+require 'lspconfig'.rust_analyzer.setup {
+    settings = {
+        ['rust-analyzer'] = {
+            diagnostics = {
+                enable = false,
+            }
+        }
+    }
+}
+
+require("lspconfig").nil_ls.setup({})
+
+require("lspconfig").nixd.setup({
+    cmd = { "nixd" },
+    settings = {
+        nixd = {
+            nixpkgs = {
+                expr = "import /home/pasha/.dotfiles/nixpkgs { }", -- replace USER with the current user's name
+            },
+            formatting = {
+                command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
+            },
+            options = {
+                nixos = {
+                    expr = '(builtins.getFlake "/home/pasha/.dotfiles/flake").nixosConfigurations.CONFIGNAME.options',
+                },
+                home_manager = {
+                    expr = '(builtins.getFlake "/home/pasha/.dotfiles/flake").homeConfigurations.CONFIGNAME.options',
+                },
+            },
+        },
     },
 })
 
@@ -132,6 +200,8 @@ require("lspconfig").jsonls.setup({
         },
     },
 })
+
+require("lspconfig")
 
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
