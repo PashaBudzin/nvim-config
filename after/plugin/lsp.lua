@@ -167,24 +167,24 @@ require 'lspconfig'.rust_analyzer.setup {
     }
 }
 
-require("lspconfig").nil_ls.setup({})
+-- require("lspconfig").nil_ls.setup({})
 
 require("lspconfig").nixd.setup({
     cmd = { "nixd" },
     settings = {
         nixd = {
             nixpkgs = {
-                expr = "import /home/pasha/.dotfiles/nixpkgs { }", -- replace USER with the current user's name
+                expr = "import <nixpkgs> { }",
             },
             formatting = {
                 command = { "alejandra" }, -- or nixfmt or nixpkgs-fmt
             },
             options = {
                 nixos = {
-                    expr = '(builtins.getFlake "/home/pasha/.dotfiles/flake").nixosConfigurations.CONFIGNAME.options',
+                    expr = '(builtins.getFlake ("git+file://" + toString ./.)).nixosConfigurations.nixos.options',
                 },
                 home_manager = {
-                    expr = '(builtins.getFlake "/home/pasha/.dotfiles/flake").homeConfigurations.CONFIGNAME.options',
+                    expr = '(builtins.getFlake ("git+file://" + toString ./.)).homeConfigurations.pasha.options',
                 },
             },
         },
