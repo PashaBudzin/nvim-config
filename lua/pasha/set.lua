@@ -33,18 +33,18 @@ vim.loader.enable()
 
 -- Use win32yank for clipboard operations in WSL
 if vim.fn.has("win32") and not vim.fn.has("gui_running") and vim.fn.executable("win32yank.exe") then
-	vim.g.clipboard = {
-		name = "win32yank-wsl",
-		copy = {
-			["+"] = "win32yank.exe -i --crlf",
-			["*"] = "win32yank.exe -i --crlf",
-		},
-		paste = {
-			["+"] = "win32yank.exe -o --lf",
-			["*"] = "win32yank.exe -o --lf",
-		},
-		cache_enabled = 0,
-	}
+    vim.g.clipboard = {
+        name = "win32yank-wsl",
+        copy = {
+            ["+"] = "win32yank.exe -i --crlf",
+            ["*"] = "win32yank.exe -i --crlf",
+        },
+        paste = {
+            ["+"] = "win32yank.exe -o --lf",
+            ["*"] = "win32yank.exe -o --lf",
+        },
+        cache_enabled = 0,
+    }
 end
 
 vim.opt.colorcolumn = "80"
@@ -55,5 +55,5 @@ vim.g.neovide_transparency = 0.8
 vim.g.neovide_transparency_point = 0.8
 
 if vim.g.neovide then
-	vim.opt.colorcolumn = "0"
+    vim.opt.colorcolumn = "0"
 end
