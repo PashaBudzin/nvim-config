@@ -22,6 +22,7 @@ conform.setup({
 		go = { "goimports", "gofmt" },
 		["*"] = { "codespell" },
 		["_"] = { "trim_whitespace" },
+		nix = { "nixfmt" },
 	},
 	formatters = {
 		prettier = {
