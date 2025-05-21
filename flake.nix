@@ -34,7 +34,7 @@
         prettierd
         gcc
         gopls
-        nixfmt
+        nixfmt-classic
       ];
     };
   };
