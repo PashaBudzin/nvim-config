@@ -35,6 +35,8 @@
         gcc
         gopls
         nixfmt-classic
+
+        tree-sitter
       ];
     };
   };
