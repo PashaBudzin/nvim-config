@@ -199,7 +199,6 @@ require("lspconfig").nixd.setup({
 	},
 })
 
-require("lspconfig").rust_analyzer.setup({})
 require("lspconfig").gopls.setup({})
 
 require("lspconfig").jsonls.setup({
