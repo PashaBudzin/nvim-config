@@ -159,6 +159,13 @@ require("lspconfig").lua_ls.setup({
 vim.g.rustaceanvim = {
 	server = {
 		capabilities = lsp_zero.get_capabilities(),
+		default_settings = {
+			["rust-analyzer"] = {
+				diagnostics = {
+					enable = false,
+				},
+			},
+		},
 	},
 }
 
