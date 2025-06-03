@@ -96,12 +96,6 @@ lsp_zero.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "<leader>i", vim.cmd.Format)
 end)
 
-vim.g.rustaceanvim = {
-	server = {
-		capabilities = lsp_zero.get_capabilities(),
-	},
-}
-
 -- to learn how to use mason.nvim with lsp-zero
 -- read this: https://github.com/VonHeikemen/lsp-zero.nvim/blob/v3.x/doc/md/guides/integrate-with-mason-nvim.md
 require("mason").setup({
@@ -122,7 +116,6 @@ require("mason-lspconfig").setup({
 			local lua_opts = lsp_zero.nvim_lua_ls()
 			require("lspconfig").lua_ls.setup(lua_opts)
 		end,
-		rust_analyzer = lsp_zero.noop,
 	},
 })
 
@@ -162,6 +155,12 @@ require("lspconfig").lua_ls.setup({
 		Lua = {},
 	},
 })
+
+vim.g.rustaceanvim = {
+	server = {
+		capabilities = lsp_zero.get_capabilities(),
+	},
+}
 
 require("lspconfig").rust_analyzer.setup({
 	settings = {

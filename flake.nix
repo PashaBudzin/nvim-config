@@ -26,7 +26,6 @@
         # LSPS
         lua-language-server
         typescript-language-server
-        rust-analyzer
         vscode-langservers-extracted
         yaml-language-server
         pyright
