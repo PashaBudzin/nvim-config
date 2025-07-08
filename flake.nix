@@ -34,6 +34,7 @@
         prettierd
         gcc
         gopls
+        clang-tools
         nixfmt-classic
 
         tree-sitter
