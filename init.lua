@@ -1,1 +1,1 @@
-require("pasha")
+require("config")

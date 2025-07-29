@@ -1,3 +1,6 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
+
 vim.opt.nu = true
 vim.opt.relativenumber = true
 vim.opt.tabstop = 4
@@ -48,12 +51,3 @@ if vim.fn.has("win32") and not vim.fn.has("gui_running") and vim.fn.executable("
 end
 
 vim.opt.colorcolumn = "80"
-
--- neovide
-
-vim.g.neovide_transparency = 0.8
-vim.g.neovide_transparency_point = 0.8
-
-if vim.g.neovide then
-	vim.opt.colorcolumn = "0"
-end
