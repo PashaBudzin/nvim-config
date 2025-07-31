@@ -77,7 +77,16 @@ vim.lsp.enable("gopls")
 vim.lsp.enable("rust_analyzer")
 
 vim.lsp.enable("tailwindcss")
-vim.lsp.enable("astro")
+
+-- vim.lsp.enable("astro")
+-- vim.lsp.config("astro", {
+-- 	init_options = {
+-- 		typescript = {
+-- 			tsdk = "node_modules/typescript/lib",
+-- 		},
+-- 	},
+-- })
+
 vim.lsp.enable("eslint")
 vim.lsp.enable("cssls")
 vim.lsp.enable("html")

@@ -16,7 +16,8 @@ return {
 		},
 	},
 	{
-		enabled = false,
+		enabled = true,
+		opts = {},
 		"mason-org/mason-lspconfig.nvim",
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
