@@ -1,5 +1,8 @@
 local conform = require("conform")
-local prettier = { "prettierd", "prettier" }
+local prettier = {
+	"prettierd",
+	"prettier",
+}
 
 conform.setup({
 	lsp_fallback = true,
@@ -33,9 +36,24 @@ conform.setup({
 						"prettier-plugin-astro",
 						"--plugin",
 						"prettier-plugin-tailwindcss",
+						"--print-width",
+						"80",
 					}
 				end
-				return { "--stdin-filepath", "$FILENAME", "--plugin", "prettier-plugin-tailwindcss" }
+				return {
+					"--stdin-filepath",
+					"$FILENAME",
+					"--plugin",
+					"prettier-plugin-tailwindcss",
+					"--print-width",
+					"80",
+				}
+			end,
+			prepend_args = function()
+				return {
+					"--config-precedence",
+					"prefer-file",
+				}
 			end,
 		},
 	},

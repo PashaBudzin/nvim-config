@@ -15,7 +15,6 @@ return {
 				"rust",
 				"css",
 				"javascript",
-				"latex",
 				"tsx",
 				"json",
 			},
@@ -35,5 +34,9 @@ return {
 				enable = true,
 			},
 		},
+
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+		end,
 	},
 }
