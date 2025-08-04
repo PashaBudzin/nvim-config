@@ -1,4 +1,3 @@
-print("hello, world")
 require("avante").setup({
 	provider = "gemini",
 	input = {
