@@ -4,6 +4,8 @@ require("lspconfig")
 local cmp = require("cmp")
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 cmp.setup({
 	sources = {
 		{ name = "path" },
@@ -24,6 +26,12 @@ cmp.setup({
 		["<c-space>"] = cmp.mapping.complete(),
 		["<tab>"] = cmp.mapping.confirm({ select = true }),
 	}),
+
+	snippet = {
+		expand = function(args)
+			require("luasnip").lsp_expand(args.body)
+		end,
+	},
 })
 
 -- on attach
