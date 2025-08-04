@@ -1,10 +1,10 @@
+print("hello, world")
 require("avante").setup({
 	provider = "gemini",
-	providers = {},
 	input = {
 		provider = "snacks",
+		height = 100000,
 		provider_opts = {
-			-- Additional snacks.input options
 			title = "Avante Input",
 			icon = " ",
 		},
@@ -13,4 +13,14 @@ require("avante").setup({
 	selector = {
 		provider = "telescope",
 	},
+	behaviour = {
+		auto_suggestions = false,
+	},
 })
+
+require("copilot").setup({
+	suggestion = { enabled = false },
+	panel = { enabled = false },
+})
+
+require("copilot_cmp").setup()

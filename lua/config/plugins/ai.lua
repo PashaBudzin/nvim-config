@@ -1,5 +1,13 @@
 return {
 	{
+		"zbirenbaum/copilot.lua",
+		cmd = "Copilot",
+		event = "InsertEnter",
+	},
+	{
+		"zbirenbaum/copilot-cmp",
+	},
+	{
 		"yetone/avante.nvim",
 		-- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
 		-- ⚠️ must add this setting! ! !
