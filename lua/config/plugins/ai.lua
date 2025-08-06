@@ -1,11 +1,19 @@
 return {
+	-- {
+	-- 	"zbirenbaum/copilot.lua",
+	-- 	cmd = "Copilot",
+	-- 	event = "InsertEnter",
+	-- },
+	-- {
+	-- 	"zbirenbaum/copilot-cmp",
+	-- },
+	--
 	{
-		"zbirenbaum/copilot.lua",
-		cmd = "Copilot",
-		event = "InsertEnter",
-	},
-	{
-		"zbirenbaum/copilot-cmp",
+		"Exafunction/windsurf.nvim",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"hrsh7th/nvim-cmp",
+		},
 	},
 	{
 		"yetone/avante.nvim",
@@ -27,9 +35,6 @@ return {
 			"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
 
 			"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
-			"folke/snacks.nvim", -- for input provider snacks
-
-			"zbirenbaum/copilot.lua", -- for providers='copilot'
 			{
 				-- support for image pasting
 				"HakonHarnes/img-clip.nvim",

@@ -1,10 +1,10 @@
 require("avante").setup({
 	provider = "gemini",
+	mode = "legacy",
 	input = {
-		provider = "snacks",
-		height = 100000,
+		provider = "dressing",
 		provider_opts = {
-			title = "Avante Input",
+			title = "Input",
 			icon = " ",
 		},
 	},
@@ -15,11 +15,18 @@ require("avante").setup({
 	behaviour = {
 		auto_suggestions = false,
 	},
+	windows = {
+		input = {
+			height = 8,
+		},
+	},
 })
 
-require("copilot").setup({
-	suggestion = { enabled = false },
-	panel = { enabled = false },
-})
-
-require("copilot_cmp").setup()
+-- require("copilot").setup({
+-- 	suggestion = { enabled = false },
+-- 	panel = { enabled = false },
+-- })
+--
+-- require("copilot_cmp").setup()
+--
+require("codeium").setup({})
