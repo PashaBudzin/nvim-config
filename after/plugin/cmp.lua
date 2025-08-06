@@ -10,7 +10,7 @@ cmp.setup({
 		{ name = "nvim_lsp" },
 		{ name = "nvim_lua" },
 		{ name = "copilot", group_index = 2 },
-		{ name = "codeium" },
+		{ name = "codeium", group_index = 2 },
 		{ name = "luasnip", keyword_length = 2 },
 		{ name = "buffer", keyword_length = 3 },
 	},
@@ -30,5 +30,11 @@ cmp.setup({
 		expand = function(args)
 			require("luasnip").lsp_expand(args.body)
 		end,
+	},
+
+	performance = {
+		debounce = 0, -- default is 60ms
+		throttle = 0, -- default is 30ms
+		fetching_timeout = 500,
 	},
 })
