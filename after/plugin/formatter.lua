@@ -24,6 +24,8 @@ conform.setup({
 		["*"] = { "codespell" },
 		["_"] = { "trim_whitespace" },
 		nix = { "nixfmt" },
+		java = { "google-java-format" },
+		kotlin = { "ktfmt" },
 	},
 	formatters = {
 		prettier = {

@@ -35,6 +35,6 @@ cmp.setup({
 	performance = {
 		debounce = 0, -- default is 60ms
 		throttle = 0, -- default is 30ms
-		fetching_timeout = 500,
+		fetching_timeout = 250,
 	},
 })
