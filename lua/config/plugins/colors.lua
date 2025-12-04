@@ -7,4 +7,9 @@ return {
 			vim.cmd.colorscheme("catppuccin")
 		end,
 	},
+	{
+		"tribela/transparent.nvim",
+		event = "VimEnter",
+		config = true,
+	},
 }
