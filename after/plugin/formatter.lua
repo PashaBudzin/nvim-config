@@ -26,6 +26,7 @@ conform.setup({
 		nix = { "nixfmt" },
 		java = { "google-java-format" },
 		kotlin = { "ktfmt" },
+		python = { "ruff" },
 	},
 	formatters = {
 		prettier = {

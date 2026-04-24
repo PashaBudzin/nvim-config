@@ -34,6 +34,8 @@ vim.opt.clipboard = "unnamedplus"
 
 vim.loader.enable()
 
+vim.g.python3_host_prog = vim.fn.getcwd() .. "/.venv/bin/python"
+
 -- Use win32yank for clipboard operations in WSL
 if vim.fn.has("win32") and not vim.fn.has("gui_running") and vim.fn.executable("win32yank.exe") then
 	vim.g.clipboard = {
@@ -51,3 +53,5 @@ if vim.fn.has("win32") and not vim.fn.has("gui_running") and vim.fn.executable("
 end
 
 vim.opt.colorcolumn = "80"
+
+vim.o.autoread = true
