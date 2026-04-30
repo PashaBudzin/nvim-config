@@ -8,6 +8,12 @@ return {
 			{ "nvim-tree/nvim-web-devicons", "catppuccin/nvim", opt = true },
 		},
 
+		opts = {
+			defaults = {
+				file_ignore_patterns = { "node_modules", ".agents" },
+			},
+		},
+
 		init = function()
 			local builtin = require("telescope.builtin")
 
@@ -17,8 +23,6 @@ return {
 			vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Telescope live grep" })
 			vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Telescope buffers" })
 			vim.keymap.set("n", "<c-p>", builtin.git_files, { desc = "Telescope help tags" })
-
-			-- vim.keymap.set("n", "<leader><leader>", builtin.git_files, { desc = "Telescope " })
 		end,
 	},
 }
